@@ -1,0 +1,354 @@
+/* --- IMPOSTAZIONI GLOBALI --- */
+:root {
+    --primary-color: #FFC107; /* Un oro/ambra vibrante */
+    --dark-bg: #121212;
+    --secondary-dark-bg: #1E1E1E;
+    --text-color: #F0F0F0;
+    --secondary-text-color: #AAAAAA;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER E NAVIGAZIONE --- */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+#main-header.scrolled {
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: #121212;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* --- SEZIONE HERO --- */
+#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Overlay scuro per leggibilità */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-weight: 300;
+}
+
+.cta-button.large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* --- SEZIONI DI CONTENUTO --- */
+.content-section {
+    padding: 100px 0;
+}
+
+.content-section-dark {
+    background-color: var(--secondary-dark-bg);
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: -40px auto 60px;
+    color: var(--secondary-text-color);
+}
+
+/* --- GRIGLIA SERVIZI --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--secondary-dark-bg);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* --- SEZIONE CHI SIAMO --- */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- SEZIONE CONTATTI --- */
+#contatti {
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #000;
+    padding: 30px 0;
+    text-align: center;
+    color: var(--secondary-text-color);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- ANIMAZIONI --- */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-out forwards;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { animation-delay: 0.3s; transition-delay: 0.2s; }
+.delay-2 { animation-delay: 0.6s; transition-delay: 0.4s; }
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    #main-header nav, #main-header .cta-button {
+        display: none; /* Semplificazione per questo esempio, per un sito vero servirebbe un menu hamburger */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
